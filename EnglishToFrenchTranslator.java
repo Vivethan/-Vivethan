@@ -7,11 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
 
 public class EnglishToFrenchTranslator {
 
@@ -65,13 +61,11 @@ public class EnglishToFrenchTranslator {
 		String str;
 
 		try {
-			// Holds true till there is nothing to read
 			while ((str = buffer.readLine()) != null) {
 				shakesPeareText = shakesPeareText.concat(str);
 
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -87,7 +81,6 @@ public class EnglishToFrenchTranslator {
 		try {
 			buffer = new BufferedReader(new FileReader(findWords));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -101,7 +94,6 @@ public class EnglishToFrenchTranslator {
 
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -115,13 +107,11 @@ public class EnglishToFrenchTranslator {
 			fileWrite.write(finalWord);
 			System.out.println("File written into this location - E:\\dictionary\\translator.txt");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				fileWrite.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
