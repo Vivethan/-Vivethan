@@ -1,5 +1,3 @@
-package com.example;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -106,12 +104,15 @@ public class EnglishToFrenchTranslator {
 			fileWrite = new FileWriter("E:\\dictionary\\translator.txt");
 			fileWrite.write(finalWord);
 			System.out.println("File written into this location - E:\\dictionary\\translator.txt");
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			e.printStackTrace();
-		} finally {
+		}
+		finally {
 			try {
 				fileWrite.close();
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
