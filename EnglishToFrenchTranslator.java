@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -23,8 +22,9 @@ public class EnglishToFrenchTranslator {
 	public static HashMap<String, String> convertCsvtoMap() {
 		HashMap<String, String> englishFrenchMapper = new HashMap<String, String>();
 		File file = new File("E:\\dictionary\\french_dictionary.csv");
+		BufferedReader br=null;
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
+			 br = new BufferedReader(new FileReader(file));
 		} 
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -52,7 +52,8 @@ public class EnglishToFrenchTranslator {
 		BufferedReader buffer = null;
 		try {
 			buffer = new BufferedReader(new FileReader(shakespeareTextFile), bufferSize);
-		} catch (FileNotFoundException e) {
+		} 
+		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
@@ -61,9 +62,10 @@ public class EnglishToFrenchTranslator {
 		try {
 			while ((str = buffer.readLine()) != null) {
 				shakesPeareText = shakesPeareText.concat(str);
-
 			}
-		} catch (IOException e) {
+
+		}
+	        catch (IOException e) {
 			e.printStackTrace();
 		}
 
@@ -78,7 +80,8 @@ public class EnglishToFrenchTranslator {
 		BufferedReader buffer = null;
 		try {
 			buffer = new BufferedReader(new FileReader(findWords));
-		} catch (FileNotFoundException e) {
+		} 
+		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
@@ -87,11 +90,12 @@ public class EnglishToFrenchTranslator {
 		try {
 			while ((word = buffer.readLine()) != null) {
 				int replaceCount = countMatches(text, word);
-				System.out.println(word + " - " + replaceCount + " Times");
+				System.out.println(word +","+dataDictionary.get(word)+ " - " + replaceCount + " Times");
 				text = text.replaceAll(word, dataDictionary.get(word));
 
 			}
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 
